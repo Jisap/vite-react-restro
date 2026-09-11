@@ -1,5 +1,14 @@
 import React from 'react'
 import Animated from '../components/Animated'
+import { Star } from 'lucide-react'
+
+
+const avatars = [
+  "/assets/user-1.jpeg",
+  "/assets/user-2.jpeg",
+  "/assets/user-3.jpeg",
+  "/assets/user-4.jpeg"
+]
 
 const HeroSection = () => {
   return (
@@ -25,6 +34,35 @@ const HeroSection = () => {
         <p className='text-zinc-600 max-w-md text-center mt-3'>
           Experience carefully curated menus, fresh local ingredients and impecable service in a space made for every celebration
         </p>
+      </Animated>
+
+      <Animated>
+        <a href="#booking-process" className='bg-orange-500 hover:bg-orange-600 text-white font-medium px-6 py-3 mt-8 rounded-full block transition'>
+          Book a table
+        </a>
+      </Animated>
+
+      <Animated className='flex items-center justify-center md:justify-start mt-9'>
+        <div className='flex -space-x-3.5 pr-3'>
+          {avatars.map((src, i) => (
+            <img
+              key={i}
+              src={src}
+              alt="guest"
+              className='size-10 border-2 border-slate-50 rounded-full hover:-translate-y-px transition'
+            />
+          ))}
+        </div>
+
+        <div>
+          <div className='flex items-center gap-0.5'>
+            {[...Array(5)].map((_, i) => (
+              <Star key={i} className="size-3.5 fill-orange-500 text-orange" color="orange-500" />
+
+            ))}
+          </div>
+          <p>4.8/5 Rating - 10,000 reviews</p>
+        </div>
       </Animated>
     </section>
   )
