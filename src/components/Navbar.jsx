@@ -1,14 +1,27 @@
 import { MenuIcon, X, XIcon } from "lucide-react"
 import { navLinks } from "../data/data"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 const Navbar = () => {
 
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  })
 
   return (
     <>
-      <nav className='fixed top-0 px-auto w-full transition-all duration-300 bg-transparent'>
+      <nav className={`
+        fixed top-0 px-auto w-full transition-all duration-300 bg-transparent
+        ${scrolled ? "bg-white/70 backdrop-blur-md" : "bg-transparent"}`
+      }>
         <div className='flex items-center justify-between font-medium py-4 mx-auto max-w-7xl'>
           <a href="/">
             <img
@@ -43,11 +56,10 @@ const Navbar = () => {
 
       {/* mobile navigation drawer */}
       <div
-        className={`fixed inset-0 z-40 flex flex-col items-center justify-center p-8 bg-white/80 backdrop-blur-md transition-all duration-300 ease-in-out ${
-          mobileOpen
-            ? "translate-x-0 opacity-100 pointer-events-auto"
-            : "-translate-x-full opacity-0 pointer-events-none"
-        }`}
+        className={`fixed inset-0 z-40 flex flex-col items-center justify-center p-8 bg-white/80 backdrop-blur-md transition-all duration-300 ease-in-out ${mobileOpen
+          ? "translate-x-0 opacity-100 pointer-events-auto"
+          : "-translate-x-full opacity-0 pointer-events-none"
+          }`}
       >
         {/* Botón de cerrar en la esquina superior derecha */}
         <button
