@@ -4,6 +4,7 @@ import HeroSection from "./sections/HeroSection"
 import Stats from "./sections/Stats"
 import Dishes from "./sections/Dishes"
 import Features from "./sections/Features"
+import BookingProcess from "./sections/BookingProcess"
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
       <Stats />
       <Dishes />
       <Features />
+      <BookingProcess />
     </>
   )
 }
