@@ -83,8 +83,15 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t text-zinc-500 border-slate-200 py-4.5 flex justify-between items-center">
           <p className="text-sm">© 2026 All rights reserved</p>
-          <img src="/assets/logo.svg" alt="Logo" className="size-20" />
+          <p>Designed by <span className="text-zinc-500 font-bold">Restro.</span></p>
         </div>
+      </div>
+
+      {/* Watermark Logo backdrop */}
+      <div className="absolute inset-0 text-center select-none -z-1 pointer-events-none">
+        <span className="text-[300px] tracking-wide font-urbanist font-semibold text-zinc-100/70">
+          Restro
+        </span>
       </div>
     </footer>
   )
