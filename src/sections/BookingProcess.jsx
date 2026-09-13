@@ -1,6 +1,6 @@
 import { Star } from "lucide-react"
 import Animated from "../components/Animated"
-import { bookingTestimonial } from "../data/data"
+import { bookingSteps, bookingTestimonial } from "../data/data"
 
 const BookingProcess = () => {
   return (
@@ -45,8 +45,22 @@ const BookingProcess = () => {
         </div>
 
         {/* Right Side */}
-        <div >
+        <div className="space-y-14 text-left">
+          {bookingSteps.map((step, index) => (
+            <Animated
+              key={index}
+              y={150}
+              delay={index * 0.15}
+              className="items-start gap-9"
+            >
+              <span className="text-orange-500 font-medium text-lg shrink-0">{step.number}</span>
 
+              <div className="flex flex-col">
+                <h3 className="text-xl mb-5">{step.title}</h3>
+                <p className="text-zinc-600">{step.description}</p>
+              </div>
+            </Animated>
+          ))}
         </div>
 
       </div>
