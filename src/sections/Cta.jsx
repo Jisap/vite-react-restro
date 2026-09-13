@@ -1,3 +1,4 @@
+import { ArrowRight } from "lucide-react"
 import Animated from "../components/Animated"
 
 
@@ -29,9 +30,24 @@ const Cta = () => {
 
       <div className="relative z-10 text-center max-w-2xl mx-auto">
         <Animated>
-          <h1>
+          <h1 className="text-3xl md:text-[40px] font-medium text-white font-urbanist text-balance">
             Every Meal Is Made To Be Remembered
           </h1>
+        </Animated>
+
+        <Animated y={20} delay={0.2}>
+          <p className="mt-4 text-white max-w-sm mx-auto">
+            Join us for fresh ingredients, signature recipes and an unforgettable dining experience.
+          </p>
+        </Animated>
+
+        <Animated delay={0.2} className="flex items-center justify-center">
+          <a href="#booking-process" className="flex items-center gap-2.5 bg-white text-black pl-5 pr-2 py-2 rounded-full mt-5.5 transition">
+            Book Your Table
+            <span className="size-7 rounded-full bg-black text-white grid place-content-center">
+              <ArrowRight size={16} />
+            </span>
+          </a>
         </Animated>
       </div>
     </section>
