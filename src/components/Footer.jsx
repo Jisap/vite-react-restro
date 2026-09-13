@@ -1,4 +1,5 @@
-import { socialLinks } from "../data/data"
+import { Mail, Phone } from "lucide-react"
+import { quickLinks, sitemapLinks, socialLinks } from "../data/data"
 import Animated from './Animated'
 
 const Footer = () => {
@@ -33,22 +34,57 @@ const Footer = () => {
 
           {/* Column 2 - Quick Links */}
           <div>
-
+            <p className="font-medium mb-5">Quick Links</p>
+            <div className="flex flex-col gap-2.5">
+              {quickLinks.map((item, index) => (
+                <Animated key={index} delay={index * 0.05}>
+                  <a href={item.href} className="text-zinc-600 hover:text-zinc-500">
+                    {item.name}
+                  </a>
+                </Animated>
+              ))}
+            </div>
           </div>
 
           {/* Column 3 - Get in Touch */}
           <div>
-
+            <p className="font-medium mb-5">Get in Touch</p>
+            <div className="space-y-2">
+              <Animated>
+                <a href="mailto:hello@example.com" className="flex items-center gap-1 text-zinc-600 hover:text-zinc-500">
+                  <Mail size={16} className="shrink-0" />
+                  hello@example.com
+                </a>
+              </Animated>
+              <Animated delay={0.2}>
+                <a href="tel:+447648463" className="flex items-center gap-1 text-zinc-600 hover:text-zinc-500">
+                  <Phone size={16} className="shrink-0" />
+                  +44 7648 463
+                </a>
+              </Animated>
+            </div>
           </div>
 
           {/* Column 4 - Sitemap */}
           <div>
-
+            <p className="font-medium mb-5">Sitemap</p>
+            <div className="flex flex-col gap-2.5">
+              {sitemapLinks.map((link, index) => (
+                <Animated key={link.name} delay={index * 0.05}>
+                  <a href={link.href} className="text-zinc-600 hover:text-zinc-500">
+                    {link.name}
+                  </a>
+                </Animated>
+              ))}
+            </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div></div>
+        <div className="border-t text-zinc-500 border-slate-200 py-4.5 flex justify-between items-center">
+          <p className="text-sm">© 2026 All rights reserved</p>
+          <img src="/assets/logo.svg" alt="Logo" className="size-20" />
+        </div>
       </div>
     </footer>
   )
