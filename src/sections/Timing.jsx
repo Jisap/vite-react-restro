@@ -26,11 +26,22 @@ const Timing = () => {
                 delay={index * 0.15}
                 className="flex justify-between items-center"
               >
-                <span>{item.day}</span>
-                <span>{item.hours}</span>
+                <span className="font-medium text-zinc-500">{item.day}</span>
+                <span className={`font-medium ${item.hours === "Closed" ? "text-zinc-400" : "text-zinc-500"}`}>
+                  {item.hours}
+                </span>
               </Animated>
             ))}
           </div>
+
+          <Animated delay={0.2} className="mt-12 flex justify-center">
+            <a
+              href="#booking-process"
+              className="bg-orange-500 hover:bg-orange-600 text-white font-medium px-6 py-3 rounded-full transition"
+            >
+              Book a table
+            </a>
+          </Animated>
         </div>
       </Animated>
     </section>
