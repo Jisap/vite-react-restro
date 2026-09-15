@@ -10,7 +10,7 @@ const LenisScroll = () => {
       duration: 1.2,
       smoothWheel: true,
       syncTouch: false,
-      nchors: {
+      anchors: {
         offset: -120
       }
     });
